@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 
 const User = require('../models/UserModel');
+const authService = require('./authService');
 
 module.exports = {
   async create(name, username, password) {
@@ -16,7 +17,12 @@ module.exports = {
       password: hash,
     });
 
-    return { success: true, message: 'user successfully created'};
+    const { result } = await authService.create(username, password)
+
+    return { success: true,
+      message: 'user successfully created',
+      result
+    };
   },
 
   async index() {

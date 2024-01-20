@@ -6,7 +6,7 @@ const routes = require('./routes');
 const app = express();
 const server = require('http').Server( app );
 
-mongoose.connect('mongodb+srv://ridam:5533@cluster0.gtsrp.mongodb.net/pokedex?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://devmateus:mateusdev@cluster0.begbuw8.mongodb.net/?retryWrites=true&w=majority');
 
 mongoose.connection
 .once('open', () => console.log('Mongoose Connected!'))
